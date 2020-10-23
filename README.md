@@ -58,7 +58,7 @@ with the proper space identation that makes it part of that function. The
 code includes the first instructions that ask the user to write a sentence,
 calls the function `input()` to read that sentence and stores it into a
 variable called `textstr`, which is then coerced into a vector (actually a
-Python `list`) called `v`, where every type letter takes a position in that
+Python `list`) called `v`, where every typed letter takes a position in that
 vector. Finally, a word counting variable called `wc` is initialitzed to 0.
 Your program should use the vector variable `v` to examine the characters of the sentence
 one by one, and the integer variable `wc` to count the number of words of the
@@ -76,13 +76,14 @@ probably be getting errors.
 Your assignment repo should have the following files:
 
   1. This `README.md` file.
-  2. The `src` directory.
-  3. The `test` directory.
+  2. The `src` directory with the initial files of the assignment repo.
+  3. The `test` directory with the initial files of the assignment repo.
 
 Eventually, you may encounter that Python automatically creates a directory called
 `__pycache__`, you may ignore that directory since this template is already
 prepared to ignore that directory by including it into a `.gitignore` file that
-informs Git to avoid putting certain files under version control.
+informs Git to avoid putting certain files under version control. In any case,
+**you should only be editing the file `src/wordcount.py`**.
 
 ## Evaluation rubric
 
