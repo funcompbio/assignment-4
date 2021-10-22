@@ -40,7 +40,7 @@ green with the message `passing` otherwise. You may click on badge to
 look at output of the autograding tests to understand why it has failed,
 if that was the case. This feature provides you with
 [formative assessment](https://en.wikipedia.org/wiki/Formative_assessment)
-and to work it it you need to edit your program in the existing file
+and to work with it you need to edit your program in the existing file
 `src/dinuc.py` and leave the rest of the files and directory structure
 intact. Within the file `src/dinuc.py` please follow the instructions
 written in comments and put your code exactly in the indicated lines. The
@@ -49,7 +49,7 @@ sequence of the [_HBB_](https://www.ncbi.nlm.nih.gov/gene/3043) gene stored
 in a FASTA file as an example, assuming that the FASTA filename is the first
 argument and the two nucleotides forming the sought dinucleotide in the second
 and third arguments. To perform such a test in your own computer, you should
-change your current working directory into the top directory of this GitHub
+change your current working directory to the top directory of this GitHub
 repo and type:
 
 ```
