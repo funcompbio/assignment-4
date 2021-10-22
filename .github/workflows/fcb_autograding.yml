@@ -14,11 +14,8 @@ jobs:
       - name: Checking for syntax errors
         run: python3 -m py_compile src/dinuc.py ; rm -f src/dinuc.pyc
       - name: Checking for HBB.fa
-        run: if [ -e HBB.fa ] ; then exit 0 ; else { echo MISSING FILE HBB.fa ; exit 1 ; } ; fi
-        run: if [ `md5sum HBB.fa | cut -d ' ' -f 1` == "82d645e7436e7931155ba305c0160eb9" ] ; then exit 0 ; else { echo WRONG FILE HBB.fa ; exit 1 ; } fi
+        run: if [ -e HBB.fa ] ; then exit 0 ; else { echo MISSING FILE HBB.fa ; exit 1 ; } ; fi ; if [ `md5sum HBB.fa | cut -d ' ' -f 1` == "82d645e7436e7931155ba305c0160eb9" ] ; then exit 0 ; else { echo WRONG FILE HBB.fa ; exit 1 ; } fi
       - name: Calculate gold standard
-        run: grep -v '>' HBB.fa | fold -2 | sort | uniq -c | sed 's/^[[:space:]]*//;s/ /,/;1i N,DNT' > dinucgold.csv
-        run: grep -v HBB HBB.fa | tr -d '\n' | fold -2 | grep -v '^.$'| sort | uniq -c | sort -k 2 | sed 's/^[[:space:]]*//;s/ /,/;1i N,DNT' > dinucgold1.csv
-        run: grep -v HBB HBB.fa | tr -d '\n' | sed 's/^.//' | fold -2 | grep -v '^.$' | sort | uniq -c | sort -k 2 | sed 's/^[[:space:]]*//;s/ /,/;1i N,DNT' > dinucgold2.csv
+        run: grep -v HBB HBB.fa | tr -d '\n' | fold -2 | grep -v '^.$'| sort | uniq -c | sort -k 2 | sed 's/^[[:space:]]*//;s/ /,/;1i N,DNT' > dinucgold1.csv ; grep -v HBB HBB.fa | tr -d '\n' | sed 's/^.//' | fold -2 | grep -v '^.$' | sort | uniq -c | sort -k 2 | sed 's/^[[:space:]]*//;s/ /,/;1i N,DNT' > dinucgold2.csv
       - name: Run autograding tests
         run: python3 -m pytest --timeout=30
