@@ -11,20 +11,33 @@ class color:
 
 def test_dinuc() :
 
-    if not os.path.isfile("dinucgold.csv") :
+    if not os.path.isfile("dinucgold1.csv") or not os.path.isfile("dinucgold2.csv") :
         errmsg = "ERROR: gold standard for comparison has not been created"
         print(color.ERROR+color.BOLD+errmsg+color.END, file=sys.stderr)
         raise Exception("Autograding workflow problem")
 
-    golddat = pandas.read_csv("dinucgold.csv")
-    for i in range(0, golddat.shape[0]-1) :
-        nt1 = golddat.iloc[i, 1][0]
-        nt2 = golddat.iloc[i, 1][1]
-        n = golddat.iloc[i, 0]
+    ## assumes dinucleotides are in the same order in both files
+    golddat1 = pandas.read_csv("dinucgold1.csv")
+    golddat2 = pandas.read_csv("dinucgold2.csv")
+    if (golddat1.shape[0] != golddat2.shape[0]) :
+        errmsg = "ERROR: dinucleotides in gold standard files do not match"
+        print(color.ERROR+color.BOLD+errmsg+color.END, file=sys.stderr)
+        raise Exception("Autograding workflow problem")
+
+    for i in range(0, golddat1.shape[0]-1) :
+        if (golddat1.iloc[i, 1][0] != golddat2.iloc[i, 1][0] or
+                golddat1.iloc[i, 1][1] != golddat2.iloc[i, 1][1]) :
+            errmsg = "ERROR: dinucleotides in gold standard files do not match"
+            print(color.ERROR+color.BOLD+errmsg+color.END, file=sys.stderr)
+            raise Exception("Autograding workflow problem")
+
+        nt1 = golddat1.iloc[i, 1][0]
+        nt2 = golddat1.iloc[i, 1][1]
+        n = golddat1.iloc[i, 0] + golddat2.iloc[i, 0]
         d = src.dinuc.main("HBB.fa", nt1, nt2)
         
         if d != n :
-            errmsg = "ERROR: your program wrongly outputs %d for %s dinucleotides in HBB.fa, while there are %d!!" %(d,golddat.iloc[i, 1], n)
+            errmsg = "ERROR: your program wrongly outputs %d for %s dinucleotides in HBB.fa, while there are %d!!" %(d,golddat1.iloc[i, 1], n)
             print(color.ERROR+color.BOLD+errmsg+color.END, file=sys.stderr)
             
         assert d == n

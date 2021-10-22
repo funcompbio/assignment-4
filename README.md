@@ -56,16 +56,7 @@ repo and type:
 $ python HBB.fa A A
 ```
 
-for the `AA` dinucleotide. You can verify in your own computer whether the
-answer given by you program is correct with the following Unix shell command
-line (for the case of the `AA` dinucleotide):
-
-```
-$ grep -v HBB HBB.fa | fold -2 | sort | uniq -c | grep AA
-     61 AA
-```
-
-Your assignment repo should have the following files:
+for the `AA` dinucleotide. Your assignment repo should have the following files:
 
   1. This `README.md` file.
   2. The `src` directory with the initial files of the assignment repo.
