@@ -11,7 +11,7 @@ class color:
 
 def test_dinuc() :
 
-    if !os.path.isfile("dinucgold.csv") :
+    if not os.path.isfile("dinucgold.csv") :
         errmsg = "ERROR: gold standard for comparison has not been created"
         print(color.ERROR+color.BOLD+errmsg+color.END, file=sys.stderr)
         raise Exception("Autograding workflow problem")
