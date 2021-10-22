@@ -1,0 +1,19 @@
+name: FCB-Python-autograding
+
+on: [push]
+
+jobs:
+  build:
+    name: autograding
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python modules
+        run: sudo -H pip3 install pytest pytest-timeout pandas
+      - name: Checking for syntax errors
+        run: python3 -m py_compile src/dinuc.py ; rm -f src/dinuc.pyc
+      - name: Calculate gold standard
+        run: grep -v '>' HBB.fa | fold -2 | sort | uniq -c | sed 's/^[[:space:]]*//;s/ /,/;1i N,DNT' > dinucgold.csv
+      - name: Run autograding tests
+        run: python3 -m pytest --timeout=30
