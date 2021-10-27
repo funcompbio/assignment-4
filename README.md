@@ -53,7 +53,7 @@ change your current working directory to the top directory of this GitHub
 repo and type:
 
 ```
-$ python HBB.fa A A
+$ python src/dinuc.py HBB.fa A A
 ```
 
 for the `AA` dinucleotide. Your assignment repo should have the following files:
