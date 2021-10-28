@@ -56,7 +56,10 @@ repo and type:
 $ python src/dinuc.py HBB.fa A A
 ```
 
-for the `AA` dinucleotide. Your assignment repo should have the following files:
+for the `AA` dinucleotide. Note that the `main()` function in the `src/dinuc.py`
+file should take its arguments in this same order to enable the autograding
+tool to correctly evaluate your program. Your assignment repo should have the
+following files:
 
   1. This `README.md` file.
   2. The `src` directory with the initial files of the assignment repo.
