@@ -1,14 +1,14 @@
 [![FCB-Python-autograding](../../actions/workflows/fcb_autograding.yml/badge.svg)](../../actions?query=workflow%3AFCB-Python-autograding)
 
-# Assignment 4 - FCB 2020
-### Deadline: 29/10/2020 - 23:59
+# Assignment 4 - FCB 2021
+### Deadline: 29/10/2021 - 23:59
 
 ## Submission procedure
 
 This assignment has to be submitted using GitHub Classroom. This
 means that you should have cloned the GitHub repo of this assignment from
 the organization account for FCB in the academic year 2021-22 at
-[https://github.com/funcompbio2020](https://github.com/funcompbio2020)
+[https://github.com/funcompbio2021](https://github.com/funcompbio2021)
 using the submission link provided at the FCB Moodle site.
 
 Once you have cloned the GitHub repo which has `assignment-4` and your
