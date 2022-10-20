@@ -40,12 +40,19 @@ def test_dinuc() :
         cmd = ['python3', 'src/dinuc.py', 'HBB.fa', nt1, nt2]
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         o, e = proc.communicate()
-        d = int(o.decode('ascii'))
-        if (proc.returncode != 0) : ## in case an error occurs, execute here to trace it
-          d2 = src.dinuc.main("HBB.fa", nt1, nt2)
-        
-        if d != n :
-            errmsg = "ERROR: your program wrongly outputs %d for %s dinucleotides in HBB.fa, while there are %d !!" %(d,golddat1.iloc[i, 1], n)
+
+        if (proc.returncode != 0) :
+            d = int(o.decode('ascii'))
+            if d != n :
+                errmsg = "ERROR: your program wrongly outputs %d for %s dinucleotides in HBB.fa, while there are %d !!" %(d,golddat1.iloc[i, 1], n)
+                print(color.ERROR+color.BOLD+errmsg+color.END, file=sys.stderr)
+        else :
+            errmsg = "ERROR: your program did not run correctly. Please see below:"
             print(color.ERROR+color.BOLD+errmsg+color.END, file=sys.stderr)
+            errmsg = e.decode('ascii')
+            errmsg = errmsg.split('\n')
+            for e in errmsg :
+                print(color.ERROR+color.BOLD+e+color.END, file=sys.stderr)
+            d = -1
             
         assert d == n
