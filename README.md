@@ -1,14 +1,14 @@
 [![FCB-Python-autograding](../../actions/workflows/fcb_autograding.yml/badge.svg)](../../actions?query=workflow%3AFCB-Python-autograding)
 
-# Assignment 4 - FCB 2021
-### Deadline: 29/10/2021 - 23:59
+# Assignment 4 - FCB 2022
+### Deadline: 28/10/2022 - 23:59
 
 ## Submission procedure
 
 This assignment has to be submitted using GitHub Classroom. This
 means that you should have cloned the GitHub repo of this assignment from
-the organization account for FCB in the academic year 2021-22 at
-[https://github.com/funcompbio2021](https://github.com/funcompbio2021)
+the organization account for FCB in the academic year 2022-23 at
+[https://github.com/funcompbio2022](https://github.com/funcompbio2022)
 using the submission link provided at the FCB Moodle site.
 
 Once you have cloned the GitHub repo which has `assignment-4` and your
@@ -21,13 +21,19 @@ assignment, the version available at the deadline will be retrieved. If the
 first version available is posterior to the deadline, then the mark of the
 assignment will have a penalty.
 
+To complete your submission (see rubric below) please **agree to the following
+academic integrity statement** by editing this README file and placing the
+letter `X` between the squared brackets preceding the statement:
+
+- [] The work here submitted as been entirely developed by myself and is the
+  result of my own work.
+
 ## Description
 
 The goal of this assignment is to implement a program in Python that
 **counts the ocurrences of a dinucleotide from the DNA sequence of a gene
 stored in a FASTA file giving the FASTA filename and the two nucleotides
 that form the dinucleotide as arguments from the command line**.
-
 
 This assignment incorporates an autograding feature using a so-called
 [GitHub Actions Worflow](https://github.com/features/actions), which will
@@ -43,21 +49,22 @@ if that was the case. This feature provides you with
 and to work with it you need to edit your program in the existing file
 `src/dinuc.py` and leave the rest of the files and directory structure
 intact. Within the file `src/dinuc.py` please follow the instructions
-written in comments and put your code exactly in the indicated lines. The
-template repo and autograding feature will test your program with the DNA
+written in comments and put your code exactly in the indicated lines.
+
+The template repo and autograding feature will test your program with the DNA
 sequence of the [_HBB_](https://www.ncbi.nlm.nih.gov/gene/3043) gene stored
 in a FASTA file as an example, assuming that the FASTA filename is the first
-argument and the two nucleotides forming the sought dinucleotide in the second
-and third arguments. To perform such a test in your own computer, you should
-change your current working directory to the top directory of this GitHub
-repo and type:
+argument and that the two nucleotides forming the sought dinucleotide are the
+second and third arguments, respectively. To perform such a test in your own
+computer, you should change your current working directory to the top directory
+of the your local copy of this GitHub repo and type:
 
 ```
 $ python src/dinuc.py HBB.fa A A
 ```
 
 for the `AA` dinucleotide. Note that the `main()` function in the `src/dinuc.py`
-file should take its arguments in this same order to enable the autograding
+file should take its arguments **in this same order** to enable the autograding
 tool to correctly evaluate your program. Your assignment repo should have the
 following files:
 
@@ -70,12 +77,14 @@ Eventually, you may encounter that Python automatically creates a directory call
 `__pycache__`, you may ignore that directory since this template is already
 prepared to ignore that directory by including it into a `.gitignore` file that
 informs Git to avoid putting certain files under version control. In any case,
-**you should only be editing the file `src/dinuc.py`**.
+**you should only be editing the file `src/dinuc.py` and `README.md` to agree
+to the academic integrity statement**.
 
 ## Evaluation rubric
 
 The rubric to evaluate this assignment consists of the following items:
 
+  * Did you agree to the academic integrity statement?
   * Does the assignment contain the required files?
   * Does the Python program `src/dinuc.py` runs without errors?
   * Does the Python program `src/dinuc.py` counts ocurrences of a dinucleotide

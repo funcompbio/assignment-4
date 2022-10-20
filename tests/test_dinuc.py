@@ -1,3 +1,4 @@
+import subprocess
 import os.path
 import sys
 import pytest
@@ -34,10 +35,17 @@ def test_dinuc() :
         nt1 = golddat1.iloc[i, 1][0]
         nt2 = golddat1.iloc[i, 1][1]
         n = golddat1.iloc[i, 0] + golddat2.iloc[i, 0]
-        d = src.dinuc.main("HBB.fa", nt1, nt2)
+        ## call from the command line to verify whether the program correctly
+        ## transfers command-line arguments to the main() function
+        cmd = ['python3', 'src/dinuc.py', 'HBB.fa', nt1, nt2]
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        o, e = proc.communicate()
+        d = int(o.decode('ascii'))
+        if (proc.returncode != 0) : ## in case an error occurs, execute here to trace it
+          d2 = src.dinuc.main("HBB.fa", nt1, nt2)
         
         if d != n :
-            errmsg = "ERROR: your program wrongly outputs %d for %s dinucleotides in HBB.fa, while there are %d!!" %(d,golddat1.iloc[i, 1], n)
+            errmsg = "ERROR: your program wrongly outputs %d for %s dinucleotides in HBB.fa, while there are %d !!" %(d,golddat1.iloc[i, 1], n)
             print(color.ERROR+color.BOLD+errmsg+color.END, file=sys.stderr)
             
         assert d == n
