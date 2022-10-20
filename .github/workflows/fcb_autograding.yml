@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Python modules
         run: sudo -H pip3 install pytest pytest-timeout pandas
       - name: Checking for syntax errors
