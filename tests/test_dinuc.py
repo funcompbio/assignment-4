@@ -41,7 +41,7 @@ def test_dinuc() :
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         o, e = proc.communicate()
 
-        if (proc.returncode != 0) :
+        if (proc.returncode == 0) :
             d = int(o.decode('ascii'))
             if d != n :
                 errmsg = "ERROR: your program wrongly outputs %d for %s dinucleotides in HBB.fa, while there are %d !!" %(d,golddat1.iloc[i, 1], n)
