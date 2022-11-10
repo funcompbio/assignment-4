@@ -25,7 +25,7 @@ To complete your submission (see rubric below) please **agree to the following
 academic integrity statement** by editing this README file and placing the
 letter `X` between the squared brackets preceding the statement:
 
-- [] The work here submitted as been entirely developed by myself and is the
+- [] The work here submitted has been entirely developed by myself and is the
   result of my own work.
 
 ## Description
