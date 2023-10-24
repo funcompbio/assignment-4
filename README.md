@@ -1,14 +1,14 @@
 [![FCB-Python-autograding](../../actions/workflows/fcb_autograding.yml/badge.svg)](../../actions?query=workflow%3AFCB-Python-autograding)
 
-# Assignment 4 - FCB 2022
-### Deadline: 28/10/2022 - 23:59
+# Assignment 4 - FCB 2023
+### Deadline: 1/11/2023 - 23:59
 
 ## Submission procedure
 
 This assignment has to be submitted using GitHub Classroom. This
 means that you should have cloned the GitHub repo of this assignment from
-the organization account for FCB in the academic year 2022-23 at
-[https://github.com/funcompbio2022](https://github.com/funcompbio2022)
+the organization account for FCB in the academic year 2023-24 at
+[https://github.com/funcompbio2023](https://github.com/funcompbio2023)
 using the submission link provided at the FCB Moodle site.
 
 Once you have cloned the GitHub repo which has `assignment-4` and your
@@ -17,9 +17,9 @@ and _push_ your changes whenever you like, but make sure that you have pushed
 the last version of your assignment before the deadline. There is no
 _submit_ button or any other specific submission procedure or action than
 just pushing your changes to you GitHub assignment repo. When correcting the
-assignment, the version available at the deadline will be retrieved. If the
-first version available is posterior to the deadline, then the mark of the
-assignment will have a penalty.
+assignment, the latest version available will be retrieved. If that latest
+version available is posterior to the deadline, then the mark of the assignment
+will have a penalty.
 
 To complete your submission (see rubric below) please **agree to the following
 academic integrity statement** by editing this README file and placing the
@@ -77,16 +77,17 @@ Eventually, you may encounter that Python automatically creates a directory call
 `__pycache__`, you may ignore that directory since this template is already
 prepared to ignore that directory by including it into a `.gitignore` file that
 informs Git to avoid putting certain files under version control. In any case,
-**you should only be editing the file `src/dinuc.py` and `README.md` to agree
+**you should only be editing the file `src/dinuc.py`, and `README.md` to agree
 to the academic integrity statement**.
 
 ## Evaluation rubric
 
 The rubric to evaluate this assignment consists of the following items:
 
-  * Did you agree to the academic integrity statement?
+  * Did you use the GitHub user profile you provided in the first assignment?
+  * Did you properly agree to the academic integrity statement?
   * Does the assignment contain the required files?
   * Does the Python program `src/dinuc.py` runs without errors?
   * Does the Python program `src/dinuc.py` counts ocurrences of a dinucleotide
-    in the DNA of a gene stored in a FASTA file correctly?
+    in the DNA of a gene stored in any FASTA file correctly?
   * Does the Python program `src/dinuc.py` passes all autograding tests?
