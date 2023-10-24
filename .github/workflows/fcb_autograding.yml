@@ -18,7 +18,7 @@ jobs:
       - name: Checking for HBB.fa
         run: RED='\033[0;31m'; NC='\033[0m' ; if [ -e HBB.fa ] ; then { if [ `md5sum HBB.fa | cut -d ' ' -f 1` == "82d645e7436e7931155ba305c0160eb9" ] ; then exit 0 ; else { echo -e "${RED}WRONG FILE HBB.fa${NC}" ; exit 1 ; } fi } ; else { echo "${RED}MISSING FILE HBB.fa${NC}" ; exit 1 ; } ; fi
       - name: Checking for opening a hardcoded filename
-        run: RED='\033[0;31m'; NC='\033[0m' ; nlhcfname=`egrep -n 'open\("[^"]+"\)' tmp.py | head -1 | cut -d ':' -f 1` ; if [ $nlhcfname -gt 0 ] ; then { echo -e "${RED}YOU ARE OPENING A FASTA FILE WITH A HARDCODED FILENAME IN LINE $nlhcfname INSTEAD OF TAKING THE FILENAME AS AN ARGUMENT FROM THE COMMAND LINE (SEE README.md FILE)${NC}" ; exit 1 ; } ; else { exit 0 ; } ; fi
+        run: RED='\033[0;31m'; NC='\033[0m' ; nlhcfname=`egrep -n 'open\("[^"]+"\)' src/dinuc.py | head -1 | cut -d ':' -f 1` ; if [ $nlhcfname -gt 0 ] ; then { echo -e "${RED}YOU ARE OPENING A FASTA FILE WITH A HARDCODED FILENAME IN LINE $nlhcfname INSTEAD OF TAKING THE FILENAME AS AN ARGUMENT FROM THE COMMAND LINE (SEE README.md FILE)${NC}" ; exit 1 ; } ; else { exit 0 ; } ; fi
       - name: Calculate gold standard
         run: grep -v '>' HBB.fa | tr -d '\n' | fold -2 | grep -v '^.$'| sort | uniq -c | sort -k 2 | sed 's/^[[:space:]]*//;s/ /,/;1i N,DNT' > dinucgold1.csv ; grep -v '>' HBB.fa | tr -d '\n' | sed 's/^.//' | fold -2 | grep -v '^.$' | sort | uniq -c | sort -k 2 | sed 's/^[[:space:]]*//;s/ /,/;1i N,DNT' > dinucgold2.csv
       - name: Run autograding tests
