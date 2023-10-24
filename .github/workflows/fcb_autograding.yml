@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python modules
-        run: sudo -H pip3 install pytest pytest-timeout
+        run: sudo -H pip3 install pytest pytest-timeout pandas
       - name: Checking for academic integrity statement
         run: RED='\033[0;31m'; NC='\033[0m' ; x=`grep 'The work here submitted' README.md | perl -nae 'print $F[1]'` ; if [ "$x" != [X] ] && [ "$x" != [x] ] ; then { if [ "$x" == [\"X\"] ] || [ "$x" == [\'X\'] ] || [ "$x" == [\"x\"] ] || [ "$x" == [\'x\'] ] ; then echo -e "${RED}DO NOT USE QUOTE CHARACTERS WHEN CHECKING THE ACADEMIC INTEGRITY STATEMENT${NC}" ; else echo -e "${RED}YOU HAVE NOT YET AGREED TO THE ACADEMIC INTEGRITY STATEMENT (SEE README.md FILE)${NC}" ; fi ; exit 1 ; } ; fi
       - name: Checking for syntax errors
