@@ -21,5 +21,4 @@ if __name__ == "__main__" :
 	## $ python antiprime.py 6
 	## WHERE THE FIRST ARGUMENT IS A POSITIVE INTEGER NUMBER FOR WHICH
 	## YOU WANT TO FIGURE OUT WHETHER IS ANTI-PRIME OR NOT
-	## SOUGHT DINUCLEOTIDE.
 	print(main())
