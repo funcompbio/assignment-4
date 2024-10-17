@@ -19,14 +19,14 @@ def test_antiprime() :
         n = antiprimes[i]
         ## call from the command line to verify whether the program correctly
         ## transfers command-line arguments to the main() function
-        cmd = ['python3', 'src/antiprime.py', n]
+        cmd = ['python3', 'src/antiprime.py', str(n)]
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         o, e = proc.communicate()
 
         if (proc.returncode == 0) :
-            r = o.decode('ascii')
+            r = o.decode('ascii').rstrip()
             if r != "anti-prime" :
-                errmsg = "ERROR: your program wrongly outputs '%s' for %d, while it should output 'anti-prime'" %(d,golddat1.iloc[i, 1], n)
+                errmsg = "ERROR: your program wrongly outputs '%s' for %d, while it should output 'anti-prime'" %(r, n)
                 print(color.ERROR+color.BOLD+errmsg+color.END, file=sys.stderr)
         else :
             errmsg = "ERROR: your program did not run correctly. Please see below:"
@@ -42,14 +42,14 @@ def test_antiprime() :
         n = nonantiprimes[i]
         ## call from the command line to verify whether the program correctly
         ## transfers command-line arguments to the main() function
-        cmd = ['python3', 'src/antiprime.py', n]
+        cmd = ['python3', 'src/antiprime.py', str(n)]
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         o, e = proc.communicate()
 
         if (proc.returncode == 0) :
-            r = o.decode('ascii')
+            r = o.decode('ascii').rstrip()
             if r != "not anti-prime" :
-                errmsg = "ERROR: your program wrongly outputs '%s' for %d, while it should output 'not anti-prime'" %(d,golddat1.iloc[i, 1], n)
+                errmsg = "ERROR: your program wrongly outputs '%s' for %d, while it should output 'not anti-prime'" %(r, n)
                 print(color.ERROR+color.BOLD+errmsg+color.END, file=sys.stderr)
         else :
             errmsg = "ERROR: your program did not run correctly. Please see below:"
