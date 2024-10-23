@@ -2,7 +2,6 @@ import subprocess
 import os.path
 import sys
 import pytest
-import src.antiprime
 
 class color:
     ERROR = '\033[91m'
@@ -35,7 +34,7 @@ def test_antiprime() :
             errmsg = errmsg.split('\n')
             for e in errmsg :
                 print(color.ERROR+color.BOLD+e+color.END, file=sys.stderr)
-            r = "x"
+            raise Exception("Autograding workflow problem")
             
         assert r == "anti-prime"
 
